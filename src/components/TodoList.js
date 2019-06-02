@@ -3,27 +3,17 @@ import style from '../containers/App.css';
 
 class TodoList extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            data: [{
-                id: 1,
-                text: 'clean room'
-            }, {
-                id: 2,
-                text: 'wash the dishes'
-            }, {
-                id: 3,
-                text: 'feed my cat'
-            }]
-        };
+        super(props);   
     }
 
     render() {
         return (
             <div className={style.Todo}>
-                <ul>
-                    <li></li>
-                </ul>
+            <ul>{this.props.data.map(item => (
+                <li key={item.id} onClick={()=> this.props.remove(item.id)}>
+                  {item.text}                
+                </li>
+              ))}</ul>
             </div>
         );
     }

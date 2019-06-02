@@ -8,7 +8,22 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [{
+                id: 1,
+                text: 'clean room'
+            }, {
+                id: 2,
+                text: 'wash the dishes'
+            }, {
+                id: 3,
+                text: 'feed my cat'
+            }, {
+                id: 4,
+                text: 'call friend'
+            }, {
+                id: 5,
+                text: 'learn react'
+            }]
         };
     }
     addTodo(val) {
@@ -27,7 +42,7 @@ class App extends React.Component {
         return (
             <div className={style.TodoApp}>
                 <Title />
-                <TodoList addTodo={this.props.addTodo} />
+                <TodoList data={this.state.data} remove={this.removeTodo.bind(this)}/>            
             </div>
         );
     }
